@@ -1,0 +1,22 @@
+class Solution:
+    def isValid(self, s: str) -> bool:
+        if not s:
+            return True
+        d = {
+            ']':'[',
+            '}':'{',
+            ')':'('
+        }
+        ss = []
+        for char in s:
+            if char in "([{":
+                ss.append(char)
+            else:
+                if ss and ss[-1] == d[char]:
+                    ss.pop()
+                else:
+                    return False
+        if ss:
+            return False
+        else:
+            return True
