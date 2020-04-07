@@ -1,0 +1,14 @@
+class Solution:
+    def binarySearch(self, arr, left, right):
+        if(left < right):
+            mid = left + (right-left) // 2
+
+            if arr[mid] < arr[mid+1]:
+                return self.binarySearch(arr, mid+1, right)
+            elif arr[mid] > arr[mid+1]:
+                return self.binarySearch(arr, left, mid)
+        else:
+            return left
+            
+    def findPeakElement(self, nums: List[int]) -> int:
+        return self.binarySearch(nums, 0, len(nums)-1)
