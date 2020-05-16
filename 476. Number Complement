@@ -1,0 +1,10 @@
+class Solution:
+    def findComplement(self, num: int) -> int:
+        b_str = bin(num)[2:]
+        res_str = ""
+        for char in b_str:
+            if char == "1":
+                res_str += "0"
+            else:
+                res_str += "1"
+        return int(res_str, 2)
