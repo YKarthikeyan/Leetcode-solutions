@@ -1,0 +1,18 @@
+class Solution:
+    def compress(self, chars: List[str]) -> int:
+        index = 0
+        i = 0
+        size = len(chars)
+        while i<size:
+            j=i
+            while j<size and chars[j] == chars[i]:
+                j+=1
+            chars[index] = chars[i]
+            index+=1
+            count = j-i
+            if count > 1:
+                for char in str(count):
+                    chars[index] = char
+                    index+=1
+            i=j
+        return index
